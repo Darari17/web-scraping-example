@@ -2,7 +2,7 @@ import puppeteer from "puppeteer";
 import { randomDelay } from "./utils/delay.js";
 import { getRandomProxy } from "./utils/proxy.js";
 
-export const scraperNaverAPI = async (url, retries = 10) => {
+export const scraperNaverAPI = async (url, retries = 5) => {
   for (let attempt = 1; attempt <= retries; attempt++) {
     let browser;
     try {
