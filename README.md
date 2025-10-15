@@ -7,7 +7,7 @@ API sederhana untuk mengambil data dari Naver Shopping API (`paged-composite-car
 - Scraping data JSON dari Naver.
 - Random delay dan proxy rotation untuk menghindari deteksi.
 - Rate limit: 2 request per detik (pakai PQueue).
-- Retry otomatis hingga 10x bila gagal.
+- Retry otomatis hingga 5x bila gagal.
 
 ## Instalasi
 
@@ -30,17 +30,26 @@ PROXY_2=http://username:password@ip:port
 ## Run
 
 ```
-npm start
+$ npm install
+$ npm start
 ```
 
-## Endpoint
+## Akses menggunakan NGROK
+
+### Run NGROK
 
 ```
-GET /naver?url=<naver_api_url>
+ngrok http 3000
 ```
 
-## Contoh:
+### Run URL NGROK yang didapat
 
 ```
-curl "http://localhost:3000/naver?url=https://search.shopping.naver.com/ns/v1/search/paged-composite-cards?query=iphone"
+https://<NGROK_URL>/naver?url=<NAVER_API_URL>
+```
+
+## Contoh Endpoint
+
+```
+GET /naver?url=https://search.shopping.naver.com/ns/v1/search/paged-composite-cards?cursor=1&pageSize=50&query=iphone
 ```
